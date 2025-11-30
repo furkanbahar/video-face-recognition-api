@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PersonaVision API - Video Face Recognition System
 
 PersonaVision is a robust RESTful API designed for automated face recognition in video files. Built with FastAPI and Python, it processes uploaded videos to identify and recognize faces, leveraging powerful computer vision libraries.
@@ -90,6 +89,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📄 License
 
 [MIT License](LICENSE)
-=======
-# video-face-recognition-api
->>>>>>> 86c9eab0345125c435c75d696145758da32ed1b6
+
