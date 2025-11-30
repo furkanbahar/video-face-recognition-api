@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+psycopg2-binary
+face-recognition
+opencv-python-headless
+python-multipart
+pydantic-settings
