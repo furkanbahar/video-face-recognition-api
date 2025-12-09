@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:13
+    container_name: personavision_db
+    environment:
+      POSTGRES_DB: politician_face_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - personavision_network
+    restart: unless-stopped
+     
+  app:
+    build: .
+    container_name: personavision_app
+    ports:
+      - "8086:8086"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=politician_face_db
+      - DB_USER=postgres
+      - DB_PASSWORD=admin
+    networks:
+      - personavision_network
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  personavision_network:
+    driver: bridge
